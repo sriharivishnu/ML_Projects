@@ -28,7 +28,7 @@ def sample_output(image_array):
         print("shape: {0}, min: {1}, max: {2}".format(img.shape,img.min(),img.max()))
     plt.show()
 
-ROOT_PATH = "data"
+ROOT_PATH = "Traffic Sign Identifier/data"
 train_data_directory = os.path.join(ROOT_PATH, "Training")
 test_data_directory = os.path.join(ROOT_PATH, "Testing")
 
