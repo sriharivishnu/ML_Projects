@@ -20,9 +20,17 @@ train_data_directory = os.path.join(ROOT_PATH, "Training")
 test_data_directory = os.path.join(ROOT_PATH, "Testing")
 
 images, labels = load_data(train_data_directory)
-images = np.array(images)
-labels = np.array(labels)
+images28 = [skimage.transform.resize(image, (28, 28)) for image in images]
+images28 = np.array(images28)
+images28 = skimage.color.rgb2gray(images28)
 
-print (labels.ndim)
-print (labels.size)
-print (len(set(labels)))
+traffic_signs = [300, 2250, 3650, 4000]
+
+for i in range(len(traffic_signs)):
+    plt.subplot(1,4,i+1)
+    plt.axis('off')
+    plt.imshow(images28[traffic_signs[i]], cmap="gray")
+    plt.subplots_adjust(wspace=0.5)
+    img = images28[traffic_signs[i]]
+    print("shape: {0}, min: {1}, max: {2}".format(img.shape,img.min(),img.max()))
+plt.show()
