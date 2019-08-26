@@ -50,14 +50,10 @@ if __name__ == '__main__':
         if i % 10 == 0 and i > 0:
             avg_score = np.mean(scores[max(0,i-10):(i+10)])
             print ('episode', i, 'score', score, 'average_score %.3f' % avg_score, 'epsilon %.3f' % agent.epsilon)
-<<<<<<< HEAD
             agent.save_models()
-=======
->>>>>>> b986bdc8e2a50ad9f75796f7ba39fab23eb64cc5
 
         else:
             print ('episode: ', i, 'score', score)
-            agent.save_models()
 
         observation = env.reset()
         observation = preprocess(observation)
