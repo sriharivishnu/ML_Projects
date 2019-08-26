@@ -101,7 +101,7 @@ class DeepQNetwork(object):
             q_next = self.q_next.sess.run(self.q_next.Q_values, feed_dict={self.q_next.input: new_state_batch})
 
             q_target = q_eval.copy()
-            q_target[:, action_indices] = reward_batch + \self.gamma*np.max(q_next, axis=1)*terminal_batch
+            q_target[:, action_indices] = reward_batch + self.gamma*np.max(q_next, axis=1)*terminal_batch
 
             _ - self.q_eval.sess.run(self.q_eval.train_op, feed_dict={self.q_eval.input: state_batch, self.q_eval.actions: action_batch, self.q_eval.q_target: q_target})
 
