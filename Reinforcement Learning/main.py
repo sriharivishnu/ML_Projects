@@ -28,7 +28,7 @@ if __name__ == '__main__':
     stack_size = 4
     score = 0
 
-    while agent.mem_cntr < 20000:
+    while agent.mem_cntr < 25000:
         done = False
         observation = env.reset()
         observation = preprocess(observation)
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         stacked_frames = None
         observation = stack_frames(stacked_frames, observation, stack_size)
         while not done:
-            action = np.random.choice([0,1,2])
+            action = agent.choose_action(observation)
             action += 1
             observation_, reward, done, info = env.step(action)
             observation_ = stack_frames(stacked_frames, preprocess(observation_), stack_size)
@@ -68,6 +68,6 @@ if __name__ == '__main__':
             agent.store_transition(observation, action, reward, observation_, int(done))
             observation = observation_
             agent.learn()
-            score += reward
+            score = reward
             env.render()
     scores.append(score)

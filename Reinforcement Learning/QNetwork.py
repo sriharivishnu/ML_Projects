@@ -110,7 +110,7 @@ class Agent(object):
 
         _ = self.q_eval.sess.run(self.q_eval.train_op, feed_dict={self.q_eval.input: state_batch, self.q_eval.actions: action_batch, self.q_eval.q_target: q_target})
 
-        if self.mem_cntr > 100000:
+        if self.mem_cntr > 20000:
             if self.epsilon > 0.01:
                 self.epsilon *= 0.9999999
             elif self.epsilon <= 0.01:
