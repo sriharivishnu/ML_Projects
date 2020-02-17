@@ -13,6 +13,6 @@ Uses the following modules:
 Convolutional neural network using tensorflow. Sorts traffic signs into their respective label.
 
 # Sources:
-* https://www.datacamp.com/community/tutorials/tensorflow-tutorial
-* https://www.youtube.com/watch?v=ELE2_Mftqoc
+- https://www.datacamp.com/community/tutorials/tensorflow-tutorial
+- https://www.youtube.com/watch?v=ELE2_Mftqoc
 
